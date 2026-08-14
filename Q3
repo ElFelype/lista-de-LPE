@@ -1,0 +1,18 @@
+#include <stdio.h>
+/*
+    Sensores automotivos muitas vezes medem temperatura em Fahrenheit. Escreva um
+programa que leia a temperatura em Fahrenheit e a converta para Celsius..
+
+*/
+int main(void)
+{
+    
+    float temperatura;
+    printf("Coloque a temperatura: ");
+    scanf("%f", &temperatura);
+
+    float celsius = (temperatura - 32)/1.8;
+
+    printf("Em celsius é %.2f", celsius);
+    return 0;
+}
