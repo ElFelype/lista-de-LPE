@@ -1,0 +1,27 @@
+#include <stdio.h>
+/*
+    Crie um programa que leia a tensão de operação (em volts) de um eletrodoméstico e
+indique se ele pode ser ligado em uma tomada de 127V ou 220V. Considere:
+• Se for entre 100V e 140V, exibir: “Compatível com 127V”.
+• Se for entre 200V e 240V, exibir: “Compatível com 220V”.
+• Caso contrário, exibir: “Tensão incompatível”.
+
+*/
+int main(void)
+{
+    float tensao_equipamento;
+    printf("Coloque a tesão do seu equipamento: ");
+    scanf("%f", &tensao_equipamento);
+
+    if(tensao_equipamento >= 100  && tensao_equipamento <= 140)
+    {
+        printf("Compativel com 127V");
+    } 
+    else if(tensao_equipamento >= 200  && tensao_equipamento <= 240){
+        printf("Compativel com 220V");
+    }
+    else{
+        printf("Tensaõ incompativel");
+    }
+    return 0;
+}
