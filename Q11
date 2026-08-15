@@ -1,0 +1,30 @@
+/*
+
+Solicite ao usuário o valor da resistência (em ohms) e da corrente (em ampères). Calcule 
+e exiba a potência dissipada no resistor (em watts).Solicite a resistência total do fio (Ω) e a corrente (A) circulando no circuito. Calcule a
+queda de tensão (em volts) nos condutores.
+
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int correnten, resistencia;
+    printf("Coloque a correnten e a resistencia: ");
+    scanf("%i%i",&correnten,&resistencia);
+    
+    int potencia =(correnten*correnten)*resistencia;
+    
+    printf("A potencia foi dissipada foi de %iW",potencia);
+    
+    int resitencia_fio, corrente_fio;
+    printf("\n\nColoque a resistencia e a corrente do fio: ");
+    scanf("%i%i", &resitencia_fio, &corrente_fio);
+    
+    int tensao = resitencia_fio*corrente_fio;
+    
+    printf("A tensao no fio e de %d",tensao);
+    
+    return 0;
+}
