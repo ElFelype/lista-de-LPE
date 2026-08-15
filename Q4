@@ -1,0 +1,28 @@
+#include <stdio.h>
+/*
+    Um contador de energia armazena o consumo em kWh. Faça um programa que leia os
+valores inicial e final do contador e calcule o consumo total. Ao final, exiba:
+• Consumo em kWh.
+• Se o consumo for maior que 150 kWh, exibir: "Atenção: consumo elevado!".0
+
+*/
+int main(void)
+{
+    
+    float contador_i;
+    float contador_f;
+    printf("Coloque o numero inicial: ");
+    scanf("%f",&contador_i);
+    printf("Coloque o consumo final: ");
+    scanf("%f", &contador_f);
+    float soma = contador_f - contador_i;
+    if (soma > 150)
+    {
+        printf("Atenção: consumo elevado! e o consumo foi de %.2f", soma);
+    }
+    else
+    {
+        printf("Foi de %.2f", soma);
+    }
+    return 0;
+}
