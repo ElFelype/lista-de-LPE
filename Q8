@@ -1,0 +1,19 @@
+/*
+Uma bateria de carro elétrico tem uma capacidade total (em kWh) e um consumo médio 
+do veículo (em kWh por km). Crie um programa que leia esses valores e calcule a 
+autonomia estimada em quilômetros.
+*/
+
+#include <stdio.h>
+int main(void)
+{
+    int capacidade_total, consumo;
+    printf("Coloque a capacidade e o consumo: ");
+    scanf("%i%i", &capacidade_total, &consumo);
+    
+    int autonomia = capacidade_total/consumo;
+    
+    printf("A autonomia e de %iKm por kWh ",autonomia);
+    
+    return 0;
+}
