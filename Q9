@@ -1,0 +1,28 @@
+/*
+
+Escreva um programa que exiba um menu com opções:
+1. TV
+2. Geladeira
+3. Máquina de lavar
+4. Micro-ondas
+O usuário deve escolher um número de 1 a 4 e o programa deve exibir o nome do 
+eletrodoméstico correspondente. Se o número for inválido, exibir mensagem de erro.
+
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int num;
+    char *produto[] ={"TV","Geladeira","Maquina de lavar", "Micro-ondas"};
+    printf("Coloque o numero nas opções \n 1. TV \n 2. Geladeira \n 3. Máquina de lavar\n 4. Micro-ondas\n Opçao:");
+    scanf("%i",&num);
+    if(num>=1 && num<=4){
+        printf("Voce escolheu o %s", produto[num - 1]);
+    } else{
+        printf("Erro:opç˜ao invalida");
+    }
+    
+    return 0;
+}
