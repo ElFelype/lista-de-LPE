@@ -1,0 +1,19 @@
+#include <stdio.h>
+/*
+    Solicite ao usuário a tensão (V) e a resistência (Ω) de um circuito. Calcule e exiba a
+corrente elétrica (em ampères) utilizando a Lei de Ohm:
+*/
+int main(void)
+{
+    
+   float tensao;
+   float resitencia;
+   printf("Coloque a resistencia:");
+   scanf("%f", &resitencia);
+   printf("Tensão:");
+   scanf("%f", &tensao);
+
+   float amper = tensao/resitencia;
+   printf("A corrente é de %.2f", amper);
+   return 0;
+}
