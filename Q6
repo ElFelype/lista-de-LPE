@@ -1,0 +1,31 @@
+#include <stdio.h>
+/*
+Solicite ao usuário um número inteiro referente ao perfil do usuário (perfil) e imprima a 
+mensagem correspondente (fazer usando if/else):
+3: ACESSO CONCEDIDO (Administrador)
+2: ACESSO CONCEDIDO (Operador)
+1: ACESSO NEGADO (Convidado)
+Outro valor: ERRO: Codigo invalido
+
+*/
+int main(void) {
+int perfil;
+
+printf("Digite o codigo do perfil (1, 2 ou 3): ");
+scanf("%d", &perfil);
+
+if (perfil == 3) {
+  printf("ACESSO CONCEDIDO (Administrador)\n");
+}
+else if (perfil == 2) {
+  printf("ACESSO CONCEDIDO (Operador)\n");
+}
+else if (perfil == 1) {
+  printf("ACESSO NEGADO (Convidado)\n");
+}
+else {
+  printf("ERRO: Codigo invalido\n");
+}
+
+return 0;
+}
