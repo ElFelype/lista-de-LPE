@@ -1,0 +1,21 @@
+/*
+Faça um programa que simule um sensor de luminosidade de um poste inteligente. O
+usuário deve informar o valor da luminosidade (em lux). O programa deve:
+• Acender a lâmpada (mostrar mensagem) se o valor for menor que 300 lux.
+• Apagar a lâmpada se for maior ou igual a 300 lux.
+*/
+
+#include <stdio.h>
+int main(void)
+{
+    int sensor;
+   printf("Coloque os lumens: ");
+   scanf("%i",&sensor);
+   
+   if(sensor < 300){
+       printf("Acender  luz");
+   }else{
+       printf("Apagar luz");
+   }
+   return 0;
+}
