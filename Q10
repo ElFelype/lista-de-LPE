@@ -1,0 +1,21 @@
+/*
+
+Solicite ao usuário o valor da resistência (em ohms) e da corrente (em ampères). Calcule 
+e exiba a potência dissipada no resistor (em watts).
+
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int correnten, resistencia;
+    printf("Coloque a correnten e a resistencia: ");
+    scanf("%i%i",&correnten,&resistencia);
+    
+    int potencia =(correnten*correnten)*resistencia;
+    
+    printf("A potencia foi de %i",potencia);
+    
+    return 0;
+}
