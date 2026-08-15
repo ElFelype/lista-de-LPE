@@ -1,0 +1,32 @@
+
+/*
+ Solicite ao usuário um número inteiro referente ao perfil do usuário (perfil) e imprima a 
+mensagem correspondente (fazer usando if/else):
+3: ACESSO CONCEDIDO (Administrador)
+2: ACESSO CONCEDIDO (Operador)
+1: ACESSO NEGADO (Convidado)
+Outro valor: ERRO: Codigo invalido
+*/
+#include <stdio.h>
+#include <string.h>
+
+int main(void){
+  char perfil[15];
+  
+  printf("Coloque seu cargo: ");
+  scanf("%14s", &perfil);
+  
+    if(strcmp(perfil, "Administrador") == 0){
+        printf("Acesso concedido");
+    }
+    else if(strcmp(perfil,"Operador") == 0){
+        printf("Acesso concedido");
+    }
+    else if(strcmp(perfil,"Convidado") == 0){
+        printf("Acesso negado");
+    }
+    else{
+        printf("Erro: Codigo invalido");
+    }
+    return 0;
+  }
