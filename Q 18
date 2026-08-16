@@ -1,0 +1,23 @@
+#include <stdio.h>
+ /*
+Uma residência possui placas solares que geraram um valor de energia (em kWh) em 
+um dia.
+• Leia a energia gerada e a energia consumida pela casa no mesmo dia.
+• Se a geração for maior ou igual ao consumo, escreva “Energia solar suficiente”.
+• Caso contrário, escreva “Necessário usar rede elétrica”.
+*/
+int main(void)
+{
+    int Casa, painel;
+    printf("Coloque quanto a Casa vez: ");
+    scanf("%d", &Casa);
+    printf("Coloque quanto a painel vez: ");
+    scanf("%d",&painel);
+    
+    if(Casa>painel){
+        printf("Energia solar suficiente");
+    }else{
+        printf("Necessário usar rede elétrica");
+    }
+    return 0;
+}
