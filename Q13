@@ -1,0 +1,17 @@
+#include <stdio.h>
+#define Tam 3
+ /*
+ Um sensor de temperatura em um automóvel fornece a leitura em Celsius. Peça a entrada 
+da temperatura em Celsius e converta para Fahrenheit.
+ */
+int main(void)
+{
+    float Celsius;
+    printf("Coloque a temperatura: ");
+    scanf("%f", &Celsius);
+    
+    float Fahrenheit = (Celsius * (9/5)) + 32;
+    
+    printf("Celsius pra fahrenheit é %.2f", Fahrenheit);
+    return 0;
+}
