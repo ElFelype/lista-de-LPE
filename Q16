@@ -1,0 +1,24 @@
+#include <stdio.h>
+#define Tam 3
+ /*
+Um painel solar gera uma potência de saída (em watts) e recebe uma potência de 
+entrada da radiação solar (em watts).
+• Leia os valores de potência de entrada e saída.
+• Calcule a eficiência:
+• Se a eficiência for maior que 20%, escreva “Painel eficiente”. Caso contrário, 
+escreva “Painel pouco eficiente”.*/
+int main(void)
+{
+    float entrada, saida;
+    printf("Coloque o quanto entrou e o quanto saiu, em W: ");
+    scanf("%f%f", &entrada, &saida);
+    
+    float eficiencia = (saida/entrada)*100;
+    
+    if (eficiencia > 20){
+        printf("Painel eficiente");
+    } else{
+        printf("Painel pouco eficiente");
+    }
+   return 0;
+}
