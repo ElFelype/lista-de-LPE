@@ -1,0 +1,24 @@
+#include <stdio.h>
+#define carro 100
+ /*
+A bateria de um carro elétrico tem capacidade de 100 kWh.
+• Leia o nível atual de energia (em kWh).
+• Calcule a porcentagem da carga.
+• Se o valor for menor que 20%, escreva “Bateria baixa, recarregar”.
+• Caso contrário, escreva “Autonomia suficiente”.
+*/
+int main(void)
+{
+    float nivel;
+    printf("Coloque o nivel  da bateria: ");
+    scanf("%f", &nivel);
+    
+    float porcentagem = (nivel/carro)*100;
+    
+    if(porcentagem <= 20){
+        printf("Bateria baixa, recarregar");
+    }else{
+        printf("Autonomia suficiente");
+    }
+    return 0;
+}
