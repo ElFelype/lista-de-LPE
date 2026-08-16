@@ -1,0 +1,19 @@
+#include <stdio.h>
+#define Tam 3
+ /*
+ Solicite três valores de impedância (em ohms) e calcule a impedância total de um circuito 
+em série.
+*/
+int main(void)
+{
+    int impedacia[Tam];
+    int soma = 0;
+    for(int i = 0; i<Tam;i++){
+        printf("Coloque a inpedancia do componente %d: ", i + 1);
+        scanf("%d", &impedacia[i]);
+        
+        soma += impedacia[i];
+    }
+    printf("A impedancia total é de %d", soma);
+   return 0;
+}
