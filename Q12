@@ -1,0 +1,19 @@
+#include <stdio.h>
+#define Tam 3
+ /*
+ Uma instalação elétrica residencial requer 3 cabos passando por conduítes. Solicite o 
+comprimento do conduíte (em metros) e calcule o comprimento total de cabo necessário.
+ */
+int main(void)
+{
+    int cabo[Tam];
+    int soma = 0;
+    for(int i=0;i<Tam;i++){
+        printf("Coloque o tamanho do cabo: ");
+        scanf("%i", &cabo[i]);
+        
+        soma += cabo[i];
+    }
+    printf("A soma dos cabos sao %dm", soma);
+    return 0;
+}
