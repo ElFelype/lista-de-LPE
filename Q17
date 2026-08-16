@@ -1,0 +1,24 @@
+#include <stdio.h>
+#define Tam 3
+ /*
+Duas turbinas eólicas produziram quantidades diferentes de energia (em kWh) em um 
+mesmo dia.
+• Leia as produções das duas turbinas.
+• Se a produção da turbina A for maior, escreva “Turbina A gerou mais energia”.
+• Caso contrário, escreva “Turbina B gerou mais energia”.
+.*/
+int main(void)
+{
+    int A_tur, B_tur;
+    printf("Coloque quanto a turbina A vez: ");
+    scanf("%d", &A_tur);
+    printf("Coloque quanto a turbina B vez: ");
+    scanf("%d",&B_tur);
+    
+    if(A_tur>B_tur){
+        printf("Turbina A gerou mais energia");
+    }else{
+        printf("Turbina B gerou mais energia");
+    }
+    return 0;
+}
