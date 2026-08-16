@@ -1,0 +1,25 @@
+#include <stdio.h>
+ /*
+Uma turbina só funciona bem se a velocidade do vento estiver em uma faixa adequada.
+• Leia a velocidade do vento (em m/s).
+• Se a velocidade for menor que 3, escreva “Vento insuficiente”.
+• Se for maior que 25, escreva “Vento muito forte, risco de dano”.
+• Caso contrário, escreva “Vento adequado para geração”.
+*/
+int main(void)
+{
+    float velocidade;
+    printf("Coloque a velocidade da turbina(m/s): ");
+    scanf("%f", &velocidade);
+    
+    if(velocidade <= 3){
+        printf("Vento insuficiente");
+    }
+    else if(velocidade >= 25){
+        printf("Vento muito forte, risco de dano");
+    }
+    else{
+        printf("Vento adequado para geração");
+    }
+    return 0;
+}
