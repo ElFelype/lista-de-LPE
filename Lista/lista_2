@@ -1,0 +1,14 @@
+#include <stdio.h>
+/*
+Peça ao usuário a quantidade de lâmpadas de uma casa e a potência de cada uma
+(em watts). Depois calcule e exiba o consumo total, se todas estivessem acesas ao
+mesmo tempo
+*/
+int main(){
+    int lampadas;
+        
+
+
+    return 0;
+}
+
