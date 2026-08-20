@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 /*
 Peça ao usuário a quantidade de lâmpadas de uma casa e a potência de cada uma
 (em watts). Depois calcule e exiba o consumo total, se todas estivessem acesas ao
@@ -6,9 +7,18 @@ mesmo tempo
 */
 int main(){
     int lampadas;
-        
+    float potencia;
+    float consumo_total = 0;
 
-
+    printf("Coloque o numero de lampadas: ");
+    scanf("%i", &lampadas);
+    for (int i = 0; i < lampadas; i++)
+    {
+        printf("Coloque a potencia da lampada %d: ", i+1);
+        scanf("%f", &potencia);
+        consumo_total += potencia;
+    }   
+    printf("O consumo de todas as casas foram de %.2f", consumo_total);
     return 0;
 }
 
