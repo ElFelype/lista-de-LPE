@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+/*
+Solicite ao usuário a potência e o tempo médio de uso diário (h) de cada aparelho
+elétrico de uma residência. O fornecimento de uma potência negativa significa o
+final de inserção dos dados. Após a leitura dos dados de entrada, o programa deve
+calcular o consumo total em kWh no mês.
+*/
+int main(){
+    int tempo;
+    int potencia = 0;
+    int count = 0;
+    double conumos_total = 0;
+    
+    while (potencia >= 0)
+    {
+        printf("Coloque o tempo medio usado e a potencia do aparelho(que parar coloque negativo na potencia) %i: ", count+1);
+        scanf("%i%i", &tempo, &potencia);
+        if (potencia >= 0 && tempo >= 1)
+        {
+            count++;
+            conumos_total += (tempo*potencia*30)/1000.0;
+        }
+    }
+    printf("O consumo total é de %f", conumos_total);
+    return 0;
+
+}
