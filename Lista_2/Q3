@@ -1,0 +1,16 @@
+/******************************************************************************
+Gere uma lista dos disjuntores disponíveis no mercado (de 10A a 100A, de 10 em
+10) e mostre-os na tela.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    
+    for(int i = 1; i < 11; i++){
+       printf("Os disjuntores são %dA\n",i*10);
+    }    
+    return 0;
+}
