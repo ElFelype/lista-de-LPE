@@ -1,0 +1,23 @@
+/******************************************************************************
+Peça ao usuário as leituras diárias, relativas à tensão de uma bateria, feitas todos
+os dias em janeiro passado. Imprima a quantidade de dias em que houve queda
+abaixo de 12V na bateria.
+*******************************************************************************/
+
+#include <stdio.h>
+#define janeiro 31
+
+int main() {
+    float tensao_baterias;
+    int count = 0;
+    for(int i = 1; i<(janeiro+1);i++){
+        printf("Coloque a tensão da bateria no dia %i", i);
+        scanf("%f", &tensao_baterias);
+        
+        if(tensao_baterias < 12){
+            count += 1;
+        }
+    }
+    printf("quantidade de dias que houve queda são %i.", count);
+    return 0;
+}
