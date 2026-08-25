@@ -1,0 +1,55 @@
+/******************************************************************************
+Elabore programas que gerem as sequências a seguir, utilizando a estrutura de
+repetição “for”:
+a) De 1 a 100 em intervalos de 2.
+b) Gere a sequência de valores: 66, 55, 44, 33, 22, 11, 0.
+c) De 20 a 2 em intervalos de -2.
+d) Gere a sequência de valores: 2, 5, 8, 11, 14, 17, 19.
+e) Gere a sequência de pares ordenados:
+ (2, 66), (5, 55), (8, 44), (11, 33), (14, 22), (17, 11), (20,0).
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+
+int main() {
+
+    printf("Letra A:\n");
+
+    for (int i = 1; i <= 100; i += 2) {
+        printf("%d ", i);
+    }
+    printf("\n\n");
+ 
+    printf("Letra B:\n ");
+    for(int i = 6; i >= 0; i--){
+        for(int j = 6; j >=0 ; j--){
+            if(i == j){
+                printf("%d%i ",j,i);
+            }
+        }
+    }
+    printf("\n\n");
+    
+    printf("Letra C:\n");
+    for(int i = 20; i>=2 ; i-=2){
+        printf("%i ", i);
+    }
+    printf("\n\n");
+    
+    printf("Letra D:\n");
+    for (int i = 2; i<20; i += 3){
+        printf("%i ",i);
+        if(i == 17){
+            printf("%i", i+2);
+        }
+    }
+    printf("\n\n");
+    
+    printf("Letra E:\n");
+    for(int i = 2,j = 66; i<=20 && j >= 0; i+= 3,j -= 11){
+        printf("(%i,%i) ",i,j);
+    }
+    
+}
