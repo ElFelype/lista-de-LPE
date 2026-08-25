@@ -1,0 +1,24 @@
+/******************************************************************************
+Peça o número de circuitos de uma residência e calcule a corrente de cada circuito
+(I = P/V), considerando tensão fixa de 220V e potência fornecida pelo usuário.
+
+*******************************************************************************/
+
+#include <stdio.h>
+#define ten 220
+
+int main() {
+
+    int circuitos;
+    float potencia, corrente;
+
+    printf("Coloque os circuitos: ");
+    scanf("%i", &circuitos);
+    for(int i = 0; i < circuitos; i++){
+        printf("Agora coloque  a potencia do circuito %i: ", i+1);
+        scanf("%f", &potencia);
+        corrente = potencia/ten;
+        printf("A corrente do circuito é %.2fA.\n", corrente);
+    }
+    return 0;
+}
