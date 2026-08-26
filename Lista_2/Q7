@@ -1,0 +1,41 @@
+/*
+Considere que um veículo faz 15km/litro e 10km/litro de combustível a uma
+velocidade média de 61 a 100km/h e de 20 a 60km/h, respectivamente. Leia várias
+velocidades médias e os tempos decorridos em cada percurso (até que o usuário
+digite -1 para a velocidade) e calcule o consumo estimado para a viagem toda.
+Qualquer velocidade acima de 100km/h deve ser arredonda para 100km/h; e
+qualquer velocidade abaixo de 20km/h deve ser arredonda para 20km/h;.
+*/
+
+#include <stdio.h>
+
+int main() {
+    float velocidade, tempo, distancia, consumo;
+    int i = 1;
+
+    printf("Percurso %d - Digite a velocidade (-1 para sair): ", i);
+
+    while (scanf("%f", &velocidade) == 1 && velocidade != -1) {
+        printf("Digite o tempo: ");
+        scanf("%f", &tempo);
+
+        // Limita a velocidade aos extremos do problema
+        if (velocidade > 100) {
+            velocidade = 100;
+        } else if (velocidade < 20) {
+            velocidade = 20;
+        }
+
+        distancia = velocidade * tempo;
+
+        // Ternário para definir a eficiência (15 km/l para >= 61 km/h, senão 10 km/l)
+        float taxa_km_l = (velocidade >= 61) ? 15.0 : 10.0;
+        consumo = distancia / taxa_km_l;
+
+        printf("Distancia: %.2f km | Consumo: %.2f L\n\n", distancia, consumo);
+
+        i++;
+        printf("Percurso %d - Digite a velocidade (-1 para sair): ", i);
+    }
+    return 0;
+}
