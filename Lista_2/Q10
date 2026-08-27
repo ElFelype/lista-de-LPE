@@ -1,0 +1,31 @@
+/*
+Leia valores de tensão de saída do alternador em diferentes rotações do motor.
+Depois identifique e exiba a maior e a menor tensão medida.
+*/
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
+int main()
+{
+    int tensao_alternador, entradas, maior, menor, count_maior, count_menor;
+    printf("Coloque as entradas: ");
+    scanf("%i", &entradas);
+    for(int i = 0; i < entradas; i++){
+        printf("Coloque a tensão na entrada %i: ", i+1);
+        scanf("%d", &tensao_alternador);
+        if(i == 0){
+            maior = tensao_alternador;
+            menor = tensao_alternador;
+        }else if(tensao_alternador > maior){
+            maior = tensao_alternador;
+            count_maior++;
+        }else if(menor > tensao_alternador){
+            menor = tensao_alternador;
+            count_menor++;
+        }
+        
+    }
+printf("A menor saida foi de %i, a menor saida foi de %d", menor, maior);
+
+}
