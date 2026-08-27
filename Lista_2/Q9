@@ -1,0 +1,17 @@
+/*
+Peça o valor de km percorrido em cada dia de uma semana por um motorista de
+aplicativo. Exiba a quilometragem acumulada naquela semana.
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int km,soma;
+    for(int i = 1; i <8; i++){
+        printf("Coloque o o km rodado no %d°: ", i);
+        scanf("%i", &km);
+        soma += km;
+    }    
+    printf("Os km totais são %i.", soma);
+}
