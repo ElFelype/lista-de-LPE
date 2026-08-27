@@ -1,0 +1,23 @@
+/*
+Simule um pisca-pisca automotivo, exibindo alternadamente "ON" e "OFF" por
+10 ciclos
+*/
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
+int main()
+{
+    bool pisca;
+    for(int i = 0; i <= 10; i++){
+        if(i%2 == 0){
+            pisca = 1;
+            printf("ON ");
+            sleep(1);
+        }else{
+            pisca == 0;
+            printf("OFF ");
+            sleep(1);
+        }
+    }
+}
