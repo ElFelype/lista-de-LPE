@@ -1,0 +1,39 @@
+/* 
+Simule, utilizando mensagens na tela, os 5 ciclos de uma máquina de lavar
+(encher, lavar, enxaguar, centrifugar, desligar), toda vez que o usuário digitar ‘S’.
+Caso contrário, deve aparecer máquina desligada e se for digitado ‘F’, o programa
+deve terminar.
+*/
+
+
+#include <stdio.h>
+#include <unistd.h>
+int main()
+{
+    char comando;
+    int etapa = 0;
+    const char *ciclo[] = {
+        "1: Enchendo...",
+        "2: Lavando...",
+        "3: Enxaguando...",
+        "4: Centrifugando...",
+        "5: Desligando."
+    };
+    do{
+        printf("\n Quer ligar coloque S para desligar F:");
+        scanf(" %c", &comando);
+        if(comando == 'S' || comando == 's'){
+            printf("-> %s", ciclo[etapa]);
+            etapa++;
+            sleep(1);
+
+            if(etapa == 4){
+                printf("\n Ciclo terminado voltando.");
+                etapa = 0;
+            }
+        }else if(comando == 'F' || comando == 'f'){
+            printf("Encerrando...");
+        }
+    }while(comando != 'F' && comando != 'f');
+    
+}
