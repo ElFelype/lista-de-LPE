@@ -1,0 +1,18 @@
+/* 
+Leia o consumo de um geladeira em kWh em cada dia do mês e calcule o gasto
+total ao longo de 30 dias.
+*/
+
+
+#include <stdio.h>
+#include <unistd.h>
+int main()
+{
+    int consumo, soma;
+    for(int i = 0; i < 30; i++){
+        printf("Coloque o consumo do dia %d: ", i+1);
+        scanf("%d", &consumo);
+        soma += consumo;
+    }
+    printf("O consumo total é de %i KWh.", soma);
+}
