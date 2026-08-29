@@ -1,0 +1,22 @@
+/* 
+Solicite o tempo em segundos de um preparo no forno de micro-ondas e simule a
+contagem regressiva até zero.
+*/
+
+
+#include <stdio.h>
+#include <unistd.h>
+int main()
+{
+    int tempo;
+    printf("Coloque o tempo que voce quer no micro-ondas: ");
+    scanf("%i", &tempo);
+    for(int i = tempo;i >= 0; i--){
+        if(i == 0){
+            printf("Tempo acabado.");
+        }else{
+            printf("%i\n",i);
+            sleep(1);
+        }
+    }
+}
