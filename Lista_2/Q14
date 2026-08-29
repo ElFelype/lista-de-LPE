@@ -1,0 +1,35 @@
+/* 
+Solicite 10 leituras de corrente de um forno elétrico e calcule a média da potência
+(P = V × I, considerando V=220V). Também exiba a maior e a menosr correntes
+registradas.
+
+*/
+
+
+#include <stdio.h>
+#include <unistd.h>
+#define tensao 220
+int main()
+{
+    int corrente;
+    float media_potencia;
+    int maior = 0, menor = 0;
+    int soma = 0;
+
+    for(int i = 0; i < 10; i++){
+        printf("Coloque a corrente na leitura %d: ", i+1);
+        scanf(" %i", &corrente);
+        maior = corrente;
+        menor = corrente;
+        soma += corrente;
+        
+        if(corrente > maior){
+            maior = corrente;
+        }else if(corrente < menor){
+            menor = corrente;
+        }   
+    }
+    media_potencia = ((float)tensao * (float)soma)/10;
+    printf("A menor corrente %i a menor corrente %i, a media é %.2f", menor, maior, media_potencia);
+    
+}
