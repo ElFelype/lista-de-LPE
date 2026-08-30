@@ -1,0 +1,19 @@
+/*
+Simule o envio de 5 mensagens de texto exibindo “Mensagem n enviada”, onde
+n varia de 1 até 10;
+*/
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+   srand(time(NULL));
+   for(int i = 0; i < 5; i++){
+    int min = 1;
+    int max = 10;
+    int variando = min + rand() % (max - min + 1);
+    printf("\n Mensagem %d enviada", variando);
+    sleep(1);
+   }
+}
