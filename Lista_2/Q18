@@ -1,0 +1,20 @@
+/*
+Simule o aumento de alcance de um repetidor de wifi. Começando com 1 metro e
+a cada iteração, aumente o alcance em 10 metros até atingir 100 metros
+*/
+#include <stdio.h>
+#include <unistd.h>
+int main()
+{
+    printf("Aumento do alcançe comecando...");
+    printf("Começando em 1m...");
+    for(int i = 1; i < 100; i += 10){
+        printf("\n%d.",i);
+        sleep(1);
+        if(i == 91){
+            printf("\n %d.", i + 9);
+            printf("\n Chegeu a seu limite.");
+        }
+    }
+    return 0;
+}
