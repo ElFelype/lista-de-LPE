@@ -1,0 +1,28 @@
+/*
+Em uma residência, cada cômodo tem um número diferente de dispositivos
+conectados (lâmpadas, aparelhos diversos, etc). Peça ao usuário para informar
+quantos cômodos existem e, em seguida, quantos dispositivos há em cada um. Ao
+final, exiba o total de dispositivos na casa.
+*/
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+    int comodo, dispositivos;
+    int soma_dispositivos = 0;
+
+    printf("Coloque a quantidade de comodos: ");
+    scanf("%d", &comodo);A
+    
+    for(int i = 0; i < comodo; i++){
+        
+        printf("Quantos dispositivos tem no comodo %d° : ", i+1);
+        scanf("%d", &dispositivos);
+        
+        soma_dispositivos += dispositivos;
+    }
+
+    printf("O total de dispositivos na casa é de %d.", soma_dispositivos);
+}
