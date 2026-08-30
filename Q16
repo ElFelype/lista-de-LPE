@@ -1,0 +1,20 @@
+/*
+Peça 10 leituras de intensidade de sinal de celular (em dBm). Mostre quantas vezes
+o sinal ficou abaixo de -90 dBm
+*/
+#include <stdio.h>
+int main()
+{
+    int sinal;
+    int count_sinal = 0;
+    
+    for(int i = 0; i < 10; i++){
+        printf("Coloque a intensidade do sinal na leitura %d°: ", i+1);
+        scanf("%d", &sinal);
+        if(sinal < -90){
+            count_sinal++;
+        }
+    }
+    printf("O sinal ficou a abaixo de -90 %d vezes.", count_sinal);
+    return 0;
+}
