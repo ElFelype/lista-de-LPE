@@ -1,0 +1,31 @@
+/*
+Compare o consumo de lâmpadas fluorescentes e de LED em uma residência, com
+base na potência de cada tipo em vários cômodos (dados digitados pelo usuário).
+Neste caso, escolha e indique por uma mensagem, a forma como o usuário deve
+inserir os dados de entrada.
+*/
+#include <stdio.h>
+int main()
+{
+    int comodos, flures, led, qunat_flures, quant_led;
+    int soma_led = 0;
+    int soma_flures = 0;
+    printf("Coloque a quantidade de comodos: ");
+    scanf("%d", &comodos);
+    for(int lugares = 0; lugares < comodos; lugares++){
+        printf("Coloque a quantidade de lampada led e flurescente, no comodo %d: ", lugares+1);
+        scanf("%i%d", &quant_led, &qunat_flures);
+        for(int lampadas_led = 0; lampadas_led < quant_led; lampadas_led++){
+            printf("Coloque a potencia do led %d°: ", lampadas_led+1);
+            scanf("%d", &led);
+            soma_led += led;
+        }
+        for(int lampdas_flures = 0; lampdas_flures < qunat_flures; lampdas_flures++){
+            printf("Coloque a potencia do flurescente %d°: ", lampdas_flures+1);
+            scanf("%d", &flures);
+            soma_flures += flures;
+        }
+    }
+    printf("\n A potencia total dos leds é %d e das flurescentes é %d.", soma_led, soma_flures);
+    return 0;
+}
