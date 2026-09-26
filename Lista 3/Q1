@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdint.h>
+
+union SensoresMonitor {
+    uint8_t Leitor_Bit;
+    
+    struct {
+        uint8_t s0 : 1;
+        uint8_t s1 : 1;
+        uint8_t s2 : 1;
+        uint8_t s3 : 1;
+        uint8_t s4 : 1;
+        uint8_t s5 : 1;
+        uint8_t s6 : 1;
+        uint8_t s7 : 1;
+    } Sensores_Bit; // Aqui declaramos o membro da union com ';' ao final
+};
+
+int main() {
+    int count_Falha = 0;
+    int ligado_desligado;
+    union SensoresMonitor monitor;
+    monitor.Leitor_Bit = 0;
+
+    for (int i = 0; i < 8; i++) {
+        printf("Coloque o estado do bit %d (0 = Normal, 1 = Falha): ", i);
+        scanf("%d", &ligado_desligado);
+
+        // Armazena falha quando o usuario digita 1
+        if (ligado_desligado == 1) {
+            monitor.Leitor_Bit |= (1 << i);
+        }        
+    }
+
+    printf("\n--- Sensores com Falha ---\n");
+    if (monitor.Sensores_Bit.s0) printf("Falha identificada: Sensor 0\n");
+    if (monitor.Sensores_Bit.s1) printf("Falha identificada: Sensor 1\n");
+    if (monitor.Sensores_Bit.s2) printf("Falha identificada: Sensor 2\n");
+    if (monitor.Sensores_Bit.s3) printf("Falha identificada: Sensor 3\n");
+    if (monitor.Sensores_Bit.s4) printf("Falha identificada: Sensor 4\n");
+    if (monitor.Sensores_Bit.s5) printf("Falha identificada: Sensor 5\n");
+    if (monitor.Sensores_Bit.s6) printf("Falha identificada: Sensor 6\n");
+    if (monitor.Sensores_Bit.s7) printf("Falha identificada: Sensor 7\n");
+
+    // Contagem bitwise das falhas
+    uint8_t temp = monitor.Leitor_Bit;
+    for (int i = 0; i < 8; i++) {
+        count_Falha += (temp & 1); 
+        temp >>= 1;                
+    }
+    
+    printf("\nTotal de falhas contabilizadas: %d\n", count_Falha);
+
+    // Verificacao de criticidade
+    if (count_Falha > 3) {
+        printf(">>> ALERTA: Sistema em estado CRITICO! <<<\n");
+    } else {
+        printf("Sistema operando dentro da margem de seguranca.\n");
+    }
+
+    return 0; // Ponto e virgula adicionado
+}
