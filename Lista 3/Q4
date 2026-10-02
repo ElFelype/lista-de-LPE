@@ -1,0 +1,34 @@
+#include <stdio.h>
+/* Implemente um sistema que:
+• Receba um byte de dados;
+• Gere e verifique bit de paridade (par ou ímpar);
+• Detecte erro de transmissão;
+*/
+
+typedef union  {
+    unsigned int bit_verefy: 7;       
+}comapact;
+
+
+int main(void)
+{
+    comapact com;
+    unsigned int variavel_entrada;
+    int count = 0;
+
+    printf("Dado em um byte: ");
+    scanf("%d",&variavel_entrada);
+    com.bit_verefy = variavel_entrada;
+    for(int i = 0; i<8 ;i++){
+        if((com.bit_verefy & 1) == 1){
+            count++;
+        }
+        com.bit_verefy >>= 1;
+    }
+    if(count % 2 == 0){
+        printf("A paridade e PAR.\n");
+    }else{
+        printf("A paridade e IMPAR.\n");
+    }
+    return 0;
+}
