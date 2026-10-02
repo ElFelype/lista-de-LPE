@@ -1,0 +1,39 @@
+#include <stdio.h>
+/*
+Dado:
+• Sensor A (4 bits);
+• Sensor B (4 bits);
+• Leia cada um separadamente pelo teclado e acrescente “um” em cada valor;
+• Compacte os dois em 1 byte;
+• Depois recupere os valores individuais (no byte) e imprima cada um;
+*/
+typedef union {
+    unsigned char compactado; 
+    
+    struct {
+        /* 
+        Char:1 Byte,short: 2 Byte, int: 4 Byte, long: 4 Byte, long long 8 byte.
+        float: 8 byte, double: 8 Byte.
+        */
+        unsigned char A_sensor: 4; 
+        unsigned char B_sensor: 4; 
+    } S; 
+    
+} pack; 
+
+int main()
+{
+    unsigned int A_entrada, B_entrada;
+    pack pacote; 
+    printf("Coloque: ");
+    scanf("%u %u", &A_entrada, &B_entrada);
+    
+    pacote.S.A_sensor = (A_entrada + 1);
+    pacote.S.B_sensor = (B_entrada + 1);
+
+    printf("Compactado: %u\n", pacote.compactado);
+    printf("Sensor A: %u\n", pacote.S.A_sensor);
+    printf("Sensor B: %u\n", pacote.S.B_sensor);
+
+    return 0;
+}
