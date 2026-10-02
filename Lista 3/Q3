@@ -1,0 +1,40 @@
+#include <stdio.h>
+// 1. OBRIGATÓRIO: Biblioteca para o uint8_t funcionar
+
+typedef union {
+    unsigned int estado_bateria;
+
+    struct { // 2. OBRIGATÓRIO: Esta chave de abertura faltou no seu código
+        unsigned int nivel_carga: 4;
+        unsigned int temp: 2;
+        unsigned int economia: 1;
+        unsigned int falha: 1;
+    } variaveis; 
+    
+} inf_bateria;
+
+int main()
+{
+    unsigned int entrada_dados;
+    inf_bateria bat; 
+    
+    printf("Digite o byte recebido do drone (0 a 255): ");
+    scanf("%u", &entrada_dados);
+    
+    // Converte o que o usuário digitou e guarda no byte da union
+    bat.estado_bateria = (unsigned int)entrada_dados;
+    
+    printf("\n--- STATUS DO DRONE ---\n");
+    printf("Nivel Carga:   %u\n", bat.variaveis.nivel_carga);
+    printf("Temperatura:   %u\n", bat.variaveis.temp);
+    printf("Modo Economia: %u\n", bat.variaveis.economia);
+
+    if(bat.variaveis.falha == 1){
+        printf("\n");
+        for(int i = 0; i < 10; i++){
+            printf("!!! ALERTA DE FALHA GRAVE !!!\n");
+        }
+    } 
+    
+    return 0;
+}
