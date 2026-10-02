@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdint.h>
+/* 
+Simule um registrador de 8 bits onde:
+• Bits 0–2: temperatura
+• Bits 3–5: pressão
+• Bits 6-7: status
+Leia o valor atual do registrador pelo teclado e depois extraia e exiba cada informação
+separadamente.
+*/
+typedef struct{ 
+    uint8_t temp:3;
+    uint8_t pressao:3;
+    uint8_t status:2;
+}resgistrador;
+
+int main()
+{
+    
+    uint8_t valor_atual;
+    unsigned int entrada;
+    
+    printf("Coloque o valor entre 0 a 255: ");
+    scanf("%u", &entrada);
+    valor_atual = (uint8_t)entrada;
+
+    resgistrador *reg = (resgistrador *)&valor_atual;
+
+    printf("\nTemperatura: %u\n", reg->temp);
+    printf("Pressão:     %u\n", reg->pressao);
+    printf("Status:      %u\n", reg->status);
+    
+    return 0;
+}
