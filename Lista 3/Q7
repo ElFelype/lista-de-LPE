@@ -1,0 +1,25 @@
+#include <stdio.h>
+/*
+Implemente um programa que simule AND, OR, XOR e NOT entre dois sinais digitais.
+*/
+
+
+int main()
+{
+    unsigned int entrada_A, entrada_B;
+    unsigned char bit_A, bit_B;
+
+    printf("Coloque, a entrada A e B: ");
+    scanf("%u%u", &entrada_A, &entrada_B);
+
+    bit_A = (unsigned char)entrada_A;
+    bit_B = (unsigned char)entrada_B;
+    
+    printf("%u\n", bit_A & bit_B);
+    printf("%u\n", bit_A | bit_B);
+    printf("%u\n", bit_A ^ bit_B);
+    printf("%u\n", (unsigned char)(~bit_A));
+    printf("%u\n", (unsigned char)(~bit_B));
+
+    return 0;
+}
