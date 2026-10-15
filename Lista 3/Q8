@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+/*
+Dado um inteiro:
+- Conte quantos bits são 1;
+- Determine o maior bloco consecutivo de bits 1;
+*/ 
+int main(void){
+    unsigned int valor;
+    int count = 0;
+    int amount_max = 0;
+    int amount_now = 0;
+    
+    printf("Coloque o valor do bit em um inteiro: ");
+    scanf("%u", &valor);
+
+    for(int i = 0; i < 32; i++){
+       
+        if(((valor >> i) & 1) == 1){
+            count++;
+            amount_now++;
+            
+            
+            if(amount_now > amount_max){
+                amount_max = amount_now;
+            }
+            
+        } else {
+            
+            amount_now = 0;
+        }
+    }
+    
+    printf("\nTotal de bits 1: %d\n", count);
+    printf("Maior bloco consecutivo de bits 1: %d\n", amount_max);
+
+    return 0; 
+}
