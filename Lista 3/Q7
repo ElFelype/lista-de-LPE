@@ -1,0 +1,104 @@
+#include <stdio.h>
+#include <unistd.h> 
+
+typedef union {
+    unsigned char LEDs;
+    struct { // Removi o nome "bit_leds" daqui para a union funcionar corretamente
+        unsigned char led0: 1;
+        unsigned char led1: 1;
+        unsigned char led2: 1;
+        unsigned char led3: 1;
+        unsigned char led4: 1;
+        unsigned char led5: 1;
+        unsigned char led6: 1;
+        unsigned char led7: 1;
+    };
+} total_leds;
+
+int main() {
+    total_leds tled; 
+    tled.LEDs = 0; 
+    int opcao, possicao;
+
+    do {
+        // Imprime o estado atual em binário direto aqui
+        printf("\nEstado Atual: ");
+        for (int j = 7; j >= 0; j--) {
+            printf("%d ", (tled.LEDs >> j) & 1);
+        }
+        printf("\n");
+        
+        printf("1. Alternar estado de um LED (0 a 7)\n");
+        printf("2. Efeito de Sequencia (Movimento)\n");
+        printf("3. Sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Qual LED deseja alternar? (0 a 7, onde 0 e o da direita): ");
+                scanf("%d", &possicao);
+                
+                if (possicao >= 0 && possicao <= 7) {
+                    int bit_escolha;
+                    printf("Coloque qual o estado 0 ou 1 no bit %d: \n", possicao);
+                    scanf("%d", &bit_escolha);                        
+                    
+                    switch(bit_escolha){
+                        case 0:
+                            tled.LEDs &= ~(1 << possicao); // Salva na variável apagando o bit
+                            break; // Faltava o break
+                        case 1:
+                            tled.LEDs |= (1 << possicao);  // Salva na variável ligando o bit
+                            break; // Faltava o break
+                        default:
+                            printf("\nDado errado.");
+                            break;
+                    }                        
+                } else {
+                    printf("LED invalido! Escolha entre 0 e 7.\n");
+                }
+                break;
+                
+            case 2:
+                printf("\nIniciando sequencia:\n");
+                tled.LEDs = 0; // Garante que começa do zero
+                
+                // Acende um por um (do bit 0 ao 7)
+                for (int i = 0; i < 8; i++) {
+                    tled.LEDs |= (1 << i); // Liga o bit e salva
+                    
+                    // Imprime a linha em binário
+                    for (int j = 7; j >= 0; j--) {
+                        printf("%d ", (tled.LEDs >> j) & 1);
+                    }
+                    printf("\n");
+                    
+                    usleep(200000); // Pausa
+                }
+                
+                // Apaga um por um na ordem inversa (do bit 7 ao 0)
+                for (int i = 7; i >= 0; i--) {
+                    tled.LEDs &= ~(1 << i); // Apaga o bit e salva
+                    
+                    // Imprime a linha em binário
+                    for (int j = 7; j >= 0; j--) {
+                        printf("%d ", (tled.LEDs >> j) & 1);
+                    }
+                    printf("\n");
+                    
+                    usleep(200000); 
+                }
+                break;
+                
+            case 3:
+                printf("Encerrando o programa.\n");
+                break;
+                
+            default:
+                printf("Opcao invalida!\n");
+        }
+    } while (opcao != 3);
+
+    return 0;
+}
