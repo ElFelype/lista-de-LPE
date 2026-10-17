@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main(void)
+{
+    unsigned char palavra_atual = 0;
+    unsigned char palavra_passado = 0;
+
+    for (int amostra = 1; amostra <= 7; amostra++) {
+        printf("Amostra %d/20 - Digite o status (0 a 255): ", amostra);
+        if (scanf("%hhu", &palavra_atual) != 1) return 1;
+
+        // XOR: '1' apenas onde houve mudanca entre passado e atual
+        unsigned char mudanca = palavra_atual ^ palavra_passado;
+
+        printf("  Alarmes que mudaram: ");
+        int houve_mudanca = 0;
+
+        for (int b = 0; b < 8; b++) {
+            // Verifica se o bit 'b' mudou
+            if ((mudanca >> b) & 1) {
+                houve_mudanca = 1;
+                // Verifica o estado atual desse bit (se ligou ou desligou)
+                if ((palavra_atual >> b) & 1) {
+                    printf("\n[Alarme %d ATIVOU] ", b);
+                } else {
+                    printf("\n[Alarme %d DESATIVOU] ", b);
+                }
+            }
+        }
+
+        if (!houve_mudanca) {
+            printf("Nenhum");
+        }
+        printf("\n\n");
+
+        // Atualiza o passado dentro do loop para a proxima rodada
+        palavra_passado = palavra_atual;
+    }
+
+    return 0;
+}
