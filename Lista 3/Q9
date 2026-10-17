@@ -1,0 +1,26 @@
+#include <stdio.h>
+/*
+Simule envi0 de dados bit a bit:
+• Use shifts (<<, >>);
+• Mostre cada etapa da transmissão;
+*/
+
+int main(void)
+{
+    unsigned int envio_bit;
+    unsigned int recebido = 0;
+    printf("Coloque: ");
+
+    if(scanf("%u", &envio_bit) != 1) return 1;
+    
+
+    printf("Enviando...\n");
+
+    for(int i = 31; i>=0 ; i--){
+        recebido = (recebido << 1) | ((envio_bit >> i) & 1);
+        printf("Passo %2d | Bit enviado: %u | Receptor reconstruindo: 0x %X\n", 
+               32 - i, ((envio_bit >> i) & 1), recebido);
+       
+        
+    }
+}
