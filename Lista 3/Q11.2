@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+union LEDS {
+    unsigned char total_leds;
+    struct {
+        unsigned char azul : 2;          
+        unsigned char verde : 2;         
+        unsigned char vermelho : 2;      
+        unsigned char piscar_efeito : 1; 
+        unsigned char estado_geral : 1;  
+    }; 
+}; 
+
+int main(void) {
+    union LEDS painel; 
+    painel.total_leds = 0;  
+    
+    int opcao;
+    int terminio_continua = 0;
+    unsigned int temp, troca_retorno; 
+
+
+    do {
+        printf("\nColoque qual vc quer alterar do led de 1 a 5: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Qual intensidade de azul quer (0 a 3)? ");
+                scanf("%u", &temp);
+                painel.azul = (unsigned char)temp;
+                break;
+            case 2:
+                printf("Qual intensidade de verde quer (0 a 3)? ");
+                scanf("%u", &temp);
+                painel.verde = (unsigned char)temp;
+                break;
+            case 3:
+                printf("Qual intensidade de vermelho quer (0 a 3)? ");
+                scanf("%u", &temp);
+                painel.vermelho = (unsigned char)temp;
+                painel.vermelho = 3;
+                break;
+            case 4:
+                printf("Quer piscar (0 a 1)? ");
+                scanf("%u", &temp);
+                painel.piscar_efeito = (unsigned char)temp;
+                break;
+            case 5:
+                printf("Desligar ou ligar (0 a 1)? ");
+                scanf("%u", &temp);
+                painel.estado_geral = (unsigned char)temp;
+                break;
+            default:
+                printf("Dado errado!\n");
+                break;
+        } 
+
+        printf("Quer continuar? (sim: 1, nao: 0): ");
+        scanf("%d", &terminio_continua);
+
+    } while (terminio_continua == 1);
+    
+    printf("Valor atual do registrador (total): %u(decimal), 0x%X(hexadecimal)\n", (unsigned int)painel.total_leds, (unsigned int)painel.total_leds);
+
+    return 0;
+}
