@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define predios 10
+/*
+Um instalador usa rolos de cabos de rede RJ45 em 10 prédios diferentes.
+• Armazene os consumos (em rolos) em um vetor.
+• Pergunte ao usuário qual prédio deseja consultar e mostre o consumo
+correspondente.
+*/
+int main()
+{    
+    int *rolos = calloc(predios, sizeof(int));
+    int opcao_predio;
+    int cont_acaba;
+    if(rolos == NULL){
+        printf("Erro ao alocar memoria!\n");
+        return 1;
+    }
+    for(int i = 0; i < predios;i++){
+        printf("Coloque o consumo do predio %d: ", i+1);
+        scanf("%d", (rolos+i));
+    }
+    do{
+        printf("Coloque qual predio deseja ver os rolos totais: ");
+        scanf("%d", &opcao_predio);
+        printf("Os rolos do predio %d são: %d\n", opcao_predio, *(rolos + opcao_predio - 1));
+        printf("Continuar sim-1 ou não-0: ");
+        scanf("%d", &cont_acaba);
+    } while (cont_acaba == 1);
+    free(rolos);
+    rolos = NULL;
+    return 0;    
+}
