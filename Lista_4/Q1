@@ -1,0 +1,65 @@
+#include <stdio.h>
+#define rolos_total 8
+/*
+1. Leia e armazene o comprimento de 8 rolos de cabos de rede RJ45.
+• Armazene os tamanhos em um vetor.
+• Mostre o tamanho médio e diga quais rolos estão acima da média.
+*/
+int main()
+{
+    int vetor[rolos_total] = {0};
+    
+    int tam_rolos = 0;
+    for(int i = 0; i<8 ; i++){
+        printf("%d ",vetor[i] );
+    }
+    printf("\n\n");
+    for(int i = 0; i < tam_rolos; i++){
+        printf("Coloque o tamanho do rolo %d: ",tam_rolos);
+        scanf("%d", &vetor[i]);
+        int soma_vet += vetor[i];
+    }
+
+    for(int i = 0; i < tam_rolos; i++){
+        printf("%d ", vetor[i]);
+    }
+
+    printf("\nTamanho é %zu.\n", sizeof(vetor)/sizeof(vetor[0]));
+
+    float media = (float)soma_vet \ tam_rolos;
+    
+    printf("\nTamanho medio: %.2f metros\n", media);
+
+    float *acima_media = NULL;
+    int count = 0;
+    
+    for(int i = 0; i < tam_rolos; i++){
+        if(vetor[i] > media){
+            int count++;
+            float *temp = (float *) realloc(acima_media, count * sizeof(float));
+            if (temp == NULL) {
+                printf("Erro de alocacao de memoria!\n");
+                free(acima_media);
+                return 1;
+            }
+            acima_media = temp;
+
+            acima_media[count - 1] = vetor[i];
+        }
+    }
+    printf("\nRolos acima da media (%d rolos encontrados):\n", count);
+    if (count == 0) {
+        printf("Nenhum rolo ficou acima da media.\n");
+    } else {
+        for (int i = 0; i < count; i++) {
+            printf("- Comprimento: %.2f m\n", acima_media[i]);
+        }
+    }
+
+    if (acima_media != NULL) {
+        free(acima_media);
+        acima_media = NULL;
+    }
+
+    return 0;    
+}
