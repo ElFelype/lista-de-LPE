@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define DIAS_TOTAL 7
+#define PAVIMENTOS_TOTAL 3
+
+int main(void)
+{
+    int *consumo = (int *) calloc(PAVIMENTOS_TOTAL * DIAS_TOTAL, sizeof(int));
+    if (consumo == NULL) {
+        printf("Erro ao alocar memoria!\n");
+        return 1;
+    }
+
+    int consumo_total_predio = 0;
+    int consumo_por_dia[DIAS_TOTAL] = {0};
+
+    
+    for (int i = 0; i < PAVIMENTOS_TOTAL; i++) {
+        int soma_pavimento = 0; 
+        
+
+        for (int j = 0; j < DIAS_TOTAL; j++) {
+            printf("Consumo no Dia %d: ", j + 1);
+
+            int offset = (i * DIAS_TOTAL) + j;
+            scanf("%d", (consumo + offset));
+
+            int valor_lido = *(consumo + offset);
+            soma_pavimento += valor_lido;
+            consumo_por_dia[j] += valor_lido; 
+        }
+
+        consumo_total_predio += soma_pavimento;
+        printf("Consumo total do pavimento %d: %d\n", i + 1, soma_pavimento);
+    }
+
+    
+    int maior_consumo_dia = consumo_por_dia[0];
+    int melhor_dia = 1;
+
+    for (int j = 1; j < DIAS_TOTAL; j++) {
+        if (consumo_por_dia[j] > maior_consumo_dia) {
+            maior_consumo_dia = consumo_por_dia[j];
+            melhor_dia = j + 1;
+        }
+    }
+
+    
+    printf("Consumo total do predio: %d\n", consumo_total_predio);
+    printf("Dia com maior consumo: Dia %d (%d consumidos)\n", melhor_dia, maior_consumo_dia);
+    
+
+    
+    free(consumo);
+    consumo = NULL;
+
+    return 0;
+}
