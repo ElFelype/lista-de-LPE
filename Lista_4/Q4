@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define pavimentos 4
+#define etapas 3
+/*
+A instalação elétrica de uma edificação é dividida em 4 pavimentos, cada um em 3
+etapas (fiação, tomadas e interruptores).
+• Armazene os custos (em mil reais) em uma matriz, por pavimento e por etapa.
+• Calcule e mostre o custo total de cada trecho e o custo total da instalação elétrica
+da edificação.
+*/
+int main()
+{
+    int *custo = (int *)calloc(pavimentos * etapas, sizeof(int));
+    int opcao_etapa, fiacao_soma = 0, tomadas_soma = 0, interruptores_soma = 0, total_edificacao = 0;
+    if(custo == NULL){
+        printf("Erro ao alocar memoria!");
+        return 1;
+    }
+
+    for(int i = 0; i<pavimentos; i++){
+        for(int j = 0; j<etapas; j++){
+            int tam_custos = ((i * etapas) + j);
+            
+            printf("\nQual das etapas voce gastou?\n1 - (fiação)\n2 - (tomadas)\n3 - (interruptores)\nResposta: ");
+            scanf("%d", &opcao_etapa);
+            switch (opcao_etapa){
+                case 1:
+                    printf("Coloque o valor da fiação: ");
+                    scanf("%d", (custo + tam_custos));
+                    fiacao_soma += *(custo + tam_custos);
+                    break;
+                case 2:
+                    printf("Coloque o valor das tomadas: ");
+                    scanf("%d", (custo + tam_custos));
+                    tomadas_soma += *(custo + tam_custos);
+                    break;
+                case 3:
+                    printf("Coloque o valor dos interruptores: ");
+                    scanf("%d", (custo + tam_custos));
+                    interruptores_soma += *(custo + tam_custos);
+                    break;
+                default:
+                    printf("Erro!");
+                    break;
+            }
+
+        }
+    }
+    
+    total_edificacao = fiacao_soma + tomadas_soma + interruptores_soma;
+    
+    printf("O total foi de %d.\nDa afiação foi de %d\nDas tomadas foi de %d\nDos interruptores foi de %d.", total_edificacao, fiacao_soma, tomadas_soma, interruptores_soma);
+    for(int a = 0; a<pavimentos ; a++){
+        printf("[");
+        for(int b = 0; b < etapas ; b++){
+            printf("%d,", *(custo + ((a * etapas)+b)));
+        }
+        printf("]");
+    }
+    free(custo);
+    custo = NULL;
+}
