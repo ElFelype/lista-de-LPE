@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+Maior e menor valor: Encontrar o maior e o menor valor em um vetor.
+*/
+int main(void)
+{
+    int maior, menor;
+    int vetor[10] = {1,5,7,3,8,10,9,15,2,6};
+    maior = vetor[0];
+    menor = vetor[0];
+
+    for(int i = 0; i<10;i++){
+        if(vetor[i]>maior) maior = vetor[i];
+        if(veotr[i]<menor) menor = vetor[i];
+    }
+    printf("O maior foi de %d e o menor %d", maior, menor);
+
+    return 0;
+}
