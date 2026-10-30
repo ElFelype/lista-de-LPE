@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+Média aritmética: Calcular a média dos valores de um vetor de n elementos.
+*/
+int main(void)
+{
+    int quant;
+    int soma_vet = 0;
+    float media;
+
+    printf("Coloque a quantidade de dados que quer somar: ");
+    scanf("%d", &quant);
+
+    if (quant <= 0) {
+        printf("Quantidade invalida.\n");
+        return 1;
+    }
+
+    
+    int *vetor = (int *)malloc(quant * sizeof(int));
+    if (vetor == NULL) {
+        printf("ERRO de alocacao.\n");
+        return 1;
+    }
+
+    
+    for (int i = 0; i < quant; i++) {
+        printf("Coloque o dado %d para somar: ", i + 1);
+        scanf("%d", (vetor + i)); 
+        
+        soma_vet += *(vetor + i);
+    }
+    media = (float)soma_vet/quant;
+    printf("\nA soma deles foi de %d\n", media);
+    printf("Os dados colocados foram: ");
+    
+    
+    for (int i = 0; i < quant; i++) {
+        printf("%d ", *(vetor + i));
+    }  
+    free(vetor);
+    vetor = NULL;
+
+    return 0;
+}
