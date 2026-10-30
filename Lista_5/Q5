@@ -16,6 +16,7 @@ int main(void)
     for(int i = 0; i<TAM; i++){
         if(*ptr & 1) impar++;
         else par++;
+        ptr++;
     }
     printf("par:%d\nimpar:%d", par, impar);
     return 0;
