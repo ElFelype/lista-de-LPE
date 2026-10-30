@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define ALUNOS 5
+#define PROVAS 3
+
+/*
+Uma turma fez 3 provas ao longo do semestre.
+• Armazene as notas de 5 alunos em uma matriz.
+• Calcule a média de cada aluno e a média da turma.
+• Mostre quantos alunos foram obtiveram média maior que a média da turma.
+*/
+
+int main(void)
+{
+    
+    float *notas = (float *)malloc(ALUNOS * PROVAS * sizeof(float));
+    float *medias_alunos = (float *)calloc(ALUNOS, sizeof(float));
+    float media_turma = 0.0f;
+    int acima_da_media = 0;
+
+    if (notas == NULL || medias_alunos == NULL) {
+        printf("Erro de alocacao de memoria.\n");
+        free(notas);
+        free(medias_alunos);
+        return 1;
+    }
+
+    
+    for (int i = 0; i < ALUNOS; i++) {
+        for (int j = 0; j < PROVAS; j++) {
+            int offset = (i * PROVAS) + j;
+
+            printf("Digite a nota da prova %d do aluno %d: ", j + 1, i + 1);
+            scanf("%f", (notas + offset));
+
+            
+            *(medias_alunos + i) += *(notas + offset);
+        }
+        
+        *(medias_alunos + i) /= PROVAS;
+        media_turma += *(medias_alunos + i);
+    }
+
+    media_turma /= ALUNOS;
+
+    // Contagem de alunos acima da média geral
+    for (int i = 0; i < ALUNOS; i++) {
+        if (*(medias_alunos + i) > media_turma) {
+            acima_da_media++;
+        }
+        printf("Media Aluno %d: %.2f\n", i + 1, *(medias_alunos + i));
+    }
+    printf("Media Geral da Turma: %.2f\n", media_turma);
+    printf("Alunos com media superior a turma: %d\n", acima_da_media);
+
+    free(notas);
+    free(medias_alunos);
+    notas = NULL;
+    medias_alunos = NULL;
+
+    return 0;
+}
