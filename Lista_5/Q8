@@ -1,0 +1,26 @@
+#include <stdio.h>
+#define TAM 10
+/*
+Cópia de vetor: Copiar todos os elementos de um vetor em outro
+*/    
+int main(void)
+{
+    int vetor[TAM] = {1,2,54,6,0,7,3,8,9,4};
+    int vetor2[TAM] = {0};
+    int temp = 0;
+    int *ptr = vetor;
+    int *ptr2 = vetor2;
+    
+    for (int i = 0; i < TAM; i++) {
+        printf("%d ", vetor[i]); 
+    }
+
+    for(int i = 0; i<TAM; i++){
+        *ptr2++ = *ptr++;
+    }
+    printf("\n");
+    for (int i = 0; i < TAM; i++) {
+        printf("%d ", vetor2[i]); 
+    }
+    return 0;
+}
