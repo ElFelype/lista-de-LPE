@@ -1,0 +1,51 @@
+#include <stdio.h>
+#define TAM 8
+
+/*
+Remover negativos: Criar um vetor apenas com os elementos positivos de outro
+vetor.
+*/
+
+int main(void)
+{
+    // Dados brutos (ex: vindos de leitura do ADC de sensores)
+    const int leituras[TAM] = {12, -5, 0, 7, -23, 1, 40, -8};
+
+    // Alocação estática: previsível, sem custo de Heap e sem risco de fragmentação
+    int positivos[TAM];
+    int negativos[TAM];
+
+    // Ponteiros para preenchimento dos buffers
+    int *ptr_pos = positivos;
+    int *ptr_neg = negativos;
+
+    // Pointer Walk de leitura
+    const int *ptr = leituras;
+
+    for (int i = 0; i < TAM; i++) {
+        if (*ptr >= 0) {
+            *ptr_pos++ = *ptr; // Salva no buffer de positivos e avança o ponteiro
+        } else {
+            *ptr_neg++ = *ptr; // Salva no buffer de negativos e avança o ponteiro
+        }
+        ptr++;
+    }
+
+    // A quantidade real de elementos é calculada pela distância entre os ponteiros
+    int qtd_pos = ptr_pos - positivos;
+    int qtd_neg = ptr_neg - negativos;
+
+    printf("Positivos processados (%d): ", qtd_pos);
+    for (int i = 0; i < qtd_pos; i++) {
+        printf("%d ", positivos[i]);
+    }
+    printf("\n");
+
+    printf("Negativos processados (%d): ", qtd_neg);
+    for (int i = 0; i < qtd_neg; i++) {
+        printf("%d ", negativos[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
