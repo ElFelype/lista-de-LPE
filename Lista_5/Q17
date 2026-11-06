@@ -1,0 +1,21 @@
+#include <stdio.h>
+#define C 4
+#define L 3
+
+/*
+Maior e menor elemento: Encontrar o maior e o menor valor de uma matriz.
+*/
+int main(void)
+{
+    int matriz[L][C] = {{3,4,6,3},{7,4,2,1},{8,10,9,12}};
+    int *ptr = &matriz[0][0];
+    int maior = *ptr, menor = *ptr;
+    for(int i = 0; i<(C*L); i++){
+        if(*ptr > maior){
+            maior = *ptr;
+        }else if(*ptr < menor) menor = *ptr;
+        ptr++;
+    }
+    printf("O menor é %d e o maior é %d", menor, maior);
+
+}
