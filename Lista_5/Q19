@@ -1,0 +1,21 @@
+#include <stdio.h>
+#define C 4
+#define L 3
+
+/*
+Contagem de pares e ímpares: Contar quantos números pares e ímpares há em
+uma matriz
+*/
+int main(void)
+{
+    int matriz[L][C] = {{3,4,6,3},{7,4,2,1},{8,10,9,12}};
+    int *ptr = &matriz[0][0];
+    int par = 0, impar = 0 ;
+    for(int i = 0; i<(C*L); i++){
+        if(*ptr%2 == 0) par++;
+        else impar++;
+        ptr++;
+    }
+    printf("O impar é %d e o par é %d", impar, par);
+
+}
