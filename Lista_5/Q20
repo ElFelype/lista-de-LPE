@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+#define C 5
+
+/*
+Notas de alunos: Ler um vetor com 5 notas e calcular a média do aluno
+*/
+int main(void)
+{
+    int notas[C] = {3, 5, 7, 2, 1};
+    int *ptr = notas;
+    float soma = 0.0f;
+
+    for (int i = 0; i < C; i++) {
+        soma += *ptr++; // Desreferencia o valor atual e avança o ponteiro
+    }
+
+    float media = soma / C;
+
+    // %.2f formata a saída com 2 casas decimais
+    printf("media: %.2f\n", media);
+
+    return 0;
+}
