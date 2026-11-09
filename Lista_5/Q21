@@ -1,0 +1,22 @@
+#include <stdio.h>
+#define N 7
+/*
+Temperaturas semanais: Ler as temperaturas de 7 dias (vetor) e mostrar a
+maior, a menor e a média.
+*/
+int main()
+{
+    int vetor[N] = {0};
+    int *ptr = vetor;
+    for(int i = 0; i<N; i++){
+        printf("Coloque a temperatura: ");
+        scanf("%d",ptr);
+        ptr++;
+    }
+    
+    for(int i = 0; i<N; i++){
+        printf("%d\n",vetor[i]);
+        
+    }
+    
+}
