@@ -1,0 +1,26 @@
+#include <stdio.h>
+#define MAQUINAS 3
+#define DIAS 5
+
+/*
+Tabela de produção: Representar a produção de 3 máquinas ao longo de 5 dias
+(matriz) e calcular o total por máquina.
+*/
+int main(void)
+{
+   int producao[MAQUINAS][DIAS] = {
+    {120, 130, 115, 140, 125},
+    {90,  95,  100, 85,  105},
+    {200, 210, 195, 205, 220}
+    };
+    const int *ptr = &producao[0][0];
+    for(int i = 0; i<MAQUINAS; i++){
+        int soma_total = 0;
+        const int *end = (ptr + DIAS);
+        while(ptr<end){
+            soma_total += *ptr++;
+        }
+        printf("Maquinas %d: %d\n", i+1, soma_total);
+    }
+    return 0;
+}
