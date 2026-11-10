@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+#define L 3
+#define C 4
+
+int main(void) {
+    int A[L][C], B[L][C], DIFF[L][C];
+
+    // 1. Leitura da Matriz A
+    printf("Digite os elementos da Matriz A (%dx%d):\n", L, C);
+    for (int i = 0; i < L; i++) {
+        for (int j = 0; j < C; j++) {
+            scanf("%d", &A[i][j]);
+        }
+    }
+
+    // 2. Leitura da Matriz B
+    printf("\nDigite os elementos da Matriz B (%dx%d):\n", L, C);
+    for (int i = 0; i < L; i++) {
+        for (int j = 0; j < C; j++) {
+            scanf("%d", &B[i][j]);
+        }
+    }
+
+    // 3. Calculo da Matriz Diferenca (A - B)
+    for (int i = 0; i < L; i++) {
+        for (int j = 0; j < C; j++) {
+            DIFF[i][j] = A[i][j] - B[i][j];
+        }
+    }
+
+    // 4. Impressao do resultado
+    printf("\nMatriz Diferenca (A - B):\n");
+    for (int i = 0; i < L; i++) {
+        for (int j = 0; j < C; j++) {
+            printf("%4d ", DIFF[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
