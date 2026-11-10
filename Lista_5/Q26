@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+#define N 3
+
+int main(void) {
+    int mat[N][N] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    for (int j = 0; j < N; j++) {
+        int temp = mat[0][j];
+        mat[0][j] = mat[N - 1][j];
+        mat[N - 1][j] = temp;
+    }
+    return 0;
+}
