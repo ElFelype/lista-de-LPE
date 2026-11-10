@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+#define L 3
+#define C 4
+
+int main(void) {
+    int mat[L][C] = {
+        {10, 20, 30, 40},
+        {50, 60, 70, 80},
+        {90, 11, 12, 13}
+    };
+
+    // Troca a primeira coluna com a última coluna
+    for (int i = 0; i < L; i++) {
+        int temp = mat[i][0];
+        mat[i][0] = mat[i][C - 1];
+        mat[i][C - 1] = temp;
+    }
+
+    // Impressão da matriz resultante
+    printf("Matriz resultante apos a troca:\n");
+    for (int i = 0; i < L; i++) {
+        for (int j = 0; j < C; j++) {
+            printf("%4d ", mat[i][j]); // %4d alinha os números em colunas de 4 espaços
+        }
+        printf("\n"); // Quebra de linha ao final de cada linha da matriz
+    }
+
+    return 0;
+}
