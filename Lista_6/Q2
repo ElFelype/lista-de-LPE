@@ -1,0 +1,18 @@
+#include <stdio.h>
+/*
+Alterando valor por referência
+Crie um programa que leia um número inteiro e utilize uma função para dobrar esse
+valor utilizando ponteiros.
+*/
+
+void  dorbraNumero(int *a){
+    *a = *a * 2; 
+}
+int main(void)
+{
+    int num;
+    printf("Coloque o numero: ");
+    scanf("%d", &num);
+    dorbraNumero(&num);
+    printf("%d", num);
+}
