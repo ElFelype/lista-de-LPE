@@ -6,17 +6,12 @@ resultado da soma. Esta função deve ser utilizada num programa deve ler os doi
 e exibir o resultado calculado.
 */
 
-void  trocar(int *a, int *b){
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+void soma(int a, int b, int *res) { *res = a + b; }
 
-}
-int main(void)
-{
-    int a_num, b_num;
+int main(void) {
+    int a, b, r;
     printf("Digite dois inteiros: ");
-    scanf("%d %d", &a_num, &b_num);
-    trocar(&a_num, &b_num);
-    printf("Apos troca: a = %d, b = %d\n", a_num, b_num); 
+    scanf("%d %d", &a, &b);
+    soma(a, b, &r);
+    printf("Soma = %d\n", r);
 }
