@@ -1,0 +1,18 @@
+#include <stdio.h>
+/*
+Faça um programa que leia um número inteiro e exiba:
+oo valor da variável;
+oo endereço de memória da variável;
+oo valor armazenado utilizando um ponteiro.
+*/
+
+int main(void)
+{
+   int num;
+   int *ptr = &num;
+   printf("Digite um inteiro: ");
+   scanf("%d", &num);
+   printf("Valor da variavel : %d\n", num);
+   printf("Endereco          : %p\n", (void*)&num);
+   printf("Valor via ponteiro: %d\n", *ptr);
+}
