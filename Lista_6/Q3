@@ -1,0 +1,21 @@
+#include <stdio.h>
+/*
+Troca simples de valores
+Desenvolva um programa que leia dois números inteiros e utilize ponteiros para trocar
+os valores entre as variáveis.
+*/
+
+void  trocar(int *a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+
+}
+int main(void)
+{
+    int a_num, b_num;
+    printf("Digite dois inteiros: ");
+    scanf("%d %d", &a_num, &b_num);
+    trocar(&a_num, &b_num);
+    printf("Apos troca: a = %d, b = %d\n", a_num, b_num); 
+}
