@@ -1,0 +1,22 @@
+#include <stdio.h>
+/*
+Soma de dois números usando ponteiros
+Faça uma função que receba dois números inteiros e um ponteiro para armazenar o
+resultado da soma. Esta função deve ser utilizada num programa deve ler os dois valores
+e exibir o resultado calculado.
+*/
+
+void  trocar(int *a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+
+}
+int main(void)
+{
+    int a_num, b_num;
+    printf("Digite dois inteiros: ");
+    scanf("%d %d", &a_num, &b_num);
+    trocar(&a_num, &b_num);
+    printf("Apos troca: a = %d, b = %d\n", a_num, b_num); 
+}
