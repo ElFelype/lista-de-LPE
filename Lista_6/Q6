@@ -1,0 +1,22 @@
+#include <stdio.h>
+/*
+Maior valor de um vetor
+Desenvolva um programa que leia 10 números inteiros e uma função que utilize
+ponteiros para encontrar e exibir o maior valor armazenado no vetor.
+*/
+int achar_maior(int *v, int n){
+    int maior = *v;
+    for(int *ptr = v + 1; ptr<v+n; ptr++){
+        if(*ptr > maior) maior = *ptr;   
+    }
+    return maior;
+}
+int main(void)
+{
+    int v[10];
+    for(int i = 0; i<10;  i++){
+        printf("Coloque o dado do vetor: ");
+        scanf("%d", &v[i]);
+    }
+    printf("O maior é %d.",achar_maior(v,10));
+}
