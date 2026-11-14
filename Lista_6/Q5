@@ -1,0 +1,22 @@
+#include <stdio.h>
+/*
+Percorrendo vetor com ponteiros
+Crie um programa que leia 5 números inteiros em um vetor e uma função que exiba
+todos os elementos utilizando apenas ponteiros para percorrer o vetor.
+*/
+void vetor_imprime(int *v, int n){
+    int *ptr;
+    for(ptr = v; ptr<n + v; ptr++)
+        printf("%d", *ptr);
+    printf("\n");
+}
+int main()
+{
+    int v[5];
+    for(int i = 0; i<5; i++){
+        printf("Coloque o dado: ");
+        scanf("%d", &v[i]);
+    }
+    vetor_imprime(v, 5);
+
+}
