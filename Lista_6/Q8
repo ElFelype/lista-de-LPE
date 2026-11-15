@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+void inverter(int *v, int n) {
+    int *intvet = v;
+    int *fim = v + (n - 1);
+    int aux;
+    while (intvet < fim) {
+        aux = *intvet;
+        *intvet = *fim;
+        *fim = aux;
+        intvet++;
+        fim--;
+    }
+}
+
+void exibirVetor(int *v, int n) {
+    int *p;
+    for (p = v; p < v + n; p++)
+        printf("%d ", *p);
+    printf("\n");
+}
+
+int main(void) {
+    int vet[6] = {0};
+    int *ptr = vet;
+    for (int i = 0; i < 6; i++) {
+        printf("Coloque o valor: ");
+        scanf("%d", ptr);
+        ptr++;
+    }
+    inverter(vet, 6);
+    exibirVetor(vet, 6);
+    return 0;
+}
