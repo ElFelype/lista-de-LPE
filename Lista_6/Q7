@@ -1,0 +1,21 @@
+#include <stdio.h>
+/*
+Contando caracteres de uma string
+Faça um programa que leia uma palavra e utilize ponteiros para contar quantos
+caracteres numéricos ela possui.
+*/
+int CountCharactre(char *s){
+    int count = 0;
+    while(*s != '\0'){
+        if(*s >= '0' && *s <= '9') count++;
+        s++;
+    }
+    return count;
+}
+
+int main(void){
+    char palavra[100];
+    printf("Digite a palavra: ");
+    scanf("%99s", palavra);
+    printf("Quantidade de character é %d \n", CountCharactre(palavra));
+}
