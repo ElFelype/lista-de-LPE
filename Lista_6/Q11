@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*
+Strings e ponteiros
+Faça um programa em C que leia o nome de um aluno utilizando uma string e um
+ponteiro para char. Em seguida, exiba:
+a) O nome digitado.
+b) A quantidade de caracteres do nome (sem contar o '\0').
+c) A primeira letra do nome utilizando o ponteiro.
+d) A última letra do nome utilizando o ponteiro.
+*/
+
+int main(void){
+    char nome[100];
+    char *ptr = nome;
+    int rodar_ponteiro = 0;
+    printf("Coloque o nome: ");
+    scanf("%99s", nome);
+    while(*(ptr+rodar_ponteiro) != '\0')
+        rodar_ponteiro++;
+    printf("O nome é %s\n", ptr);
+    printf("São %d\n", rodar_ponteiro);
+    printf("É %c\n", *ptr);
+    printf("É %c\n", *(ptr + (rodar_ponteiro-1)));
+}
