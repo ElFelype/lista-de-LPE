@@ -1,0 +1,27 @@
+#include <stdio.h>
+/*
+Atualizando dados de uma struct
+Defina uma struct para armazenar os dados de um produto (nome e preço). Utilize
+ponteiros para alterar o preço do produto em uma função.
+*/
+
+typedef struct{
+    char nome[56];
+    float preco;
+}produto;
+
+void AlteraPreco(produto *preco_antigo, float novo){
+    preco_antigo -> preco = novo;  
+}
+void main(void){
+    produto prot;
+    float novo;
+    printf("Coloque o nome do produto: ");
+    scanf("%49s", prot.nome);
+    printf("Coloque o preço do %s: ", prot.nome);
+    scanf("%f", &prot.preco);
+    printf("Coloque o novo preço: ");
+    scanf("%f", &novo);
+    AlteraPreco(&prot, novo);
+    printf("O produto é %s\n Preço novo: %.2f", prot.nome, prot.preco);
+}
