@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*
+Alocação dinâmica simples
+Desenvolva um programa que peça ao usuário a quantidade de números que deseja
+armazenar. Utilize malloc() para alocar memória dinamicamente, leia os valores e
+exiba todos os números usando ponteiros.
+*/
+
+int main(void){
+    int qunat;
+    printf("Coloque a quantidade de numeros que quer armazenar: ");
+    scanf("%d", &qunat);
+    int *num = (int *)malloc(sizeof(int)*qunat);
+    if(num == NULL){
+        printf("Erro");
+        return 1;
+    }
+    for(int i = 0; i<qunat; i++){
+        printf("Coloque o valor: ");
+        scanf("%d", num + i);
+    }
+    printf("valores são:\n");
+    for(int i = 0; i<qunat; i++){
+        printf("%d\n", *(num + i));
+    }
+    free(num);
+    return 0;
+}
