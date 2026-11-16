@@ -1,0 +1,38 @@
+#include <stdio.h>
+/*
+A secretaria de uma faculdade armazena os números de CPF dos estudantes cadastrados
+em seu sistema. Para garantir que as consultas de dados sejam instantâneas, a lista de
+CPFs no sistema encontra-se previamente ordenada. Considere o vetor contendo 9
+CPFs registrados (simplificados com 4 dígitos para facilitar a visualização):
+int cpfs[] = {1020, 2050, 3100, 4200, 5000, 6300, 7800, 8900, 9500};
+Um funcionário do atendimento digita o CPF 3100 para buscar os dados de um aluno
+usando a Busca Binária. Mostre os valores das variáveis inicio, fim, meio e do
+elemento cpfs[meio] em cada iteração até localizar o CPF
+*/
+int main(void) {
+    int n = 9;
+    int cpfs[] = {1020, 2050, 3100, 4200, 5000, 6300, 7800, 8900, 9500};
+    int inicio = 0;
+    int fim = n - 1;
+    int it = 1;
+    int alvo = 3100;
+
+    while (inicio <= fim) {
+        int meio = inicio + ((fim - inicio) >> 1);
+        printf("Iter %d: inicio=%d fim=%d meio=%d cpfs[meio]=%d\n",
+               it, inicio, fim, meio, cpfs[meio]);
+        it++;
+
+        if (cpfs[meio] == alvo) {
+            printf("Encontrado no indice %d\n", meio);
+            return 0;
+        } else if (cpfs[meio] < alvo) {
+            inicio = meio + 1;
+        } else {
+            fim = meio - 1;
+        }
+    }
+
+    printf("Nao encontrado\n");
+    return 0;
+}
