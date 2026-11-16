@@ -1,0 +1,35 @@
+#include <stdio.h>
+/*
+Bubble Sort
+Um sistema de caixa de supermercado precisa de ordenar um lote de produtos pela sua
+data de validade (representada como o número de dias restantes para vencer) para colocar
+em promoção os itens que vão expirar mais cedo. Considere a seguinte lista de dias até ao
+vencimento de 5 produtos: int dias_vencimento[] = {12, 3, 45, 1, 8}; Aplique
+o algoritmo Bubble Sort para ordenar o vetor em ordem crescente (do produto mais
+próximo de vencer para o mais distante).
+*/
+
+void exibirVetor(int *v, int n) {
+    int *p;
+    for (p = v; p < v + n; p++)
+        printf("%d ", *p);
+    printf("\n");
+}
+
+
+void main(void) {
+    int n = 7;
+    int temp = 0;
+    int vetor[] = {9,1,4,6,8,3,7};
+    for(int i = 0; i<(n-1); i++){
+        for(int j = 0; j<(n-1-i); j++){
+            if(vetor[j]> vetor[j+1]){
+                temp = vetor[j];
+                vetor[j] = vetor[j+1];
+                vetor[j+1] = temp;
+            }
+        }
+        printf("Passada %d: ", i+1);
+        exibirVetor(vetor,n);
+    }    
+}
