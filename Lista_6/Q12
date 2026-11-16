@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*
+Comparação de Strings
+Em uma escola, antes de cadastrar um novo aluno, é necessário verificar se ele já
+está registrado no sistema. Faça um programa em C que:
+a) Leia dois nomes.
+b) Utilize ponteiros para acessar as strings.
+c) Compare os dois nomes caractere por caractere.
+d) Informe se os nomes são iguais ou diferentes.
+*/
+
+int Iguais(const char *a, const char *b){ 
+    while(*a && *a == *b){
+        a++;
+        b++;
+    }
+    return *a == *b;
+}
+
+int main(void){
+    char name1[64];
+    char name2[64];
+    char *ptr;
+    ptr = name1;
+
+    printf("Coloque o primeiro nome: ");
+    scanf("%63s",ptr);
+
+    ptr = name2;
+    printf("Coloque o segundo nome: ");
+    scanf("%63s", ptr);
+
+    if(Iguais(name1, name2)){
+        printf("São iguais!!!");
+    }else{
+        printf("São diferentes!!");
+    }
+    return 0;
+}
